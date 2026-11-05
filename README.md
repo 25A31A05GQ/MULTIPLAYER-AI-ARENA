@@ -53,7 +53,7 @@ Make sure you have Python 3 and Pygame installed:
 ```bash
 pip install pygame
 
-
+'''mermaid
 graph TD
     Start([NPC AI Update Tick]) --> StunCheck{Is NPC EMP Stunned?}
     
@@ -69,4 +69,4 @@ graph TD
     AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
     DFS --> Move
     Charge --> Move
-
+'''
