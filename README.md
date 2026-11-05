@@ -69,7 +69,6 @@ graph TD
     AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
     DFS --> Move
     Charge --> Move
-```
     
     AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
     DFS --> Move
