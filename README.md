@@ -52,8 +52,8 @@ Players navigate an elevated isometric cyber-chasm arena, extracting scattered q
 Make sure you have Python 3 and Pygame installed:
 ```bash
 pip install pygame
-
-'''mermaid
+```
+```mermaid
 graph TD
     Start([NPC AI Update Tick]) --> StunCheck{Is NPC EMP Stunned?}
     
@@ -65,6 +65,11 @@ graph TD
     
     DistCheck -->|Yes| AStar[State: A* PURSUIT <br/> Compute Min-Heap Open Set <br/> using Euclidean Heuristic]
     DistCheck -->|No| DFS[State: DFS EXPLORATION <br/> Stack-based Wander Behavior]
+    
+    AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
+    DFS --> Move
+    Charge --> Move
+```
     
     AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
     DFS --> Move
