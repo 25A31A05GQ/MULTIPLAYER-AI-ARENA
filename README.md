@@ -52,3 +52,21 @@ Players navigate an elevated isometric cyber-chasm arena, extracting scattered q
 Make sure you have Python 3 and Pygame installed:
 ```bash
 pip install pygame
+
+
+graph TD
+    Start([NPC AI Update Tick]) --> StunCheck{Is NPC EMP Stunned?}
+    
+    StunCheck -->|Yes| Stunned[State: EMP STUNNED / Wait]
+    StunCheck -->|No| ChargeCheck{Telegraph Charge Triggered?}
+    
+    ChargeCheck -->|Yes| Charge[State: TELEGRAPH CHARGE <br/> Direct A* Path to Target Player]
+    ChargeCheck -->|No| DistCheck{Player Carrying Cores <br/> or Within Range <= 7 Tiles?}
+    
+    DistCheck -->|Yes| AStar[State: A* PURSUIT <br/> Compute Min-Heap Open Set <br/> using Euclidean Heuristic]
+    DistCheck -->|No| DFS[State: DFS EXPLORATION <br/> Stack-based Wander Behavior]
+    
+    AStar --> Move[Execute Next Grid Step & <br/> Trigger Step Resonance Ripple]
+    DFS --> Move
+    Charge --> Move
+
